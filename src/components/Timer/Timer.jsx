@@ -20,6 +20,17 @@ const Timer = () => {
   const seconds = getPadTime(timeLeft - (hours * 60 * 60) - (minutes * 60))
 
   let aud = new Audio(audio)
+
+  let numhours = []
+  let numminsec = []
+
+  for (let i = 1; i < 25; i++) {
+    numhours.push(i)
+  }
+
+  for (let i = 1; i < 60; i++) {
+    numminsec.push(i)
+  }
   
 
   useEffect(() => {
@@ -60,20 +71,10 @@ const Timer = () => {
   }
 
   const handleSet = () => {
-    if (secRef.current.value > 59 || secRef.current.value < 0 || 
-        minRef.current.value > 59 || minRef.current.value < 0 ||
-        hourRef.current.value > 23 || hourRef.current.value < 0) {
-      alert ('no sec')
-    } else {
-      setSum((hourRef.current.value * 3600) + (minRef.current.value * 60) + secRef.current.value)
-      setTimeLeft((hourRef.current.value * 3600) + (minRef.current.value * 60) + secRef.current.value)
+      setSum(parseInt(hourRef.current.value * 3600) + parseInt(minRef.current.value * 60) + parseInt(secRef.current.value))
+      setTimeLeft(parseInt(hourRef.current.value * 3600) + parseInt(minRef.current.value * 60) + parseInt(secRef.current.value))
       setIsCounting(false)
       document.getElementById('circle_svg').style.animation=`none`
-    }
-
-    secRef.current.value = null
-    minRef.current.value = null 
-    hourRef.current.value = null
   }
 
 
@@ -90,10 +91,30 @@ const Timer = () => {
           </g>
         </svg>
       </div>
-      <div className='timer_input'>
-        <input type='text' ref={hourRef} placeholder='hours'/>
-        <input type='text' ref={minRef} placeholder='minutes'/>
-        <input type='text' ref={secRef} placeholder='seconds'/>
+      <div className='timer_input_all'>
+        <div className='timer_input'>
+          <label>
+            H:
+            <select ref={hourRef} size='3'>
+              <option value={0} selected>0</option>
+              {numhours.map(num => <option key={num} value={num}>{num}</option>)}
+            </select>
+          </label>
+          <label>
+            M:
+            <select ref={minRef} size='3'>
+              <option value={0} selected>0</option>
+              {numminsec.map(num => <option key={num} value={num}>{num}</option>)}
+            </select>
+          </label>
+          <label>
+            S:
+            <select ref={secRef} size='3'>
+              <option value={0} selected>0</option>
+              {numminsec.map(num => <option key={num} value={num}>{num}</option>)}
+            </select>
+          </label>
+        </div>
       </div>
       <div className='timer_buttons'>
         {isCounting ? <button onClick={handleStop}>Stop</button> : <button onClick={handleStart}>Start</button>}
