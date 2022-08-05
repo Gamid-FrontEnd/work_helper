@@ -1,0 +1,132 @@
+@import '../mixins_vars.scss';
+
+.todoList_mainDiv {
+    width: 100vw;
+    padding-top: 50px;
+
+}
+
+.todoList_div {
+    width: 500px;
+    @include center_mar();
+    padding: 20px;
+
+    border-radius: 5px;
+    box-shadow: 0 0 15px grey;
+}
+
+.addtodo_div {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+
+    input {
+        line-height: 25px;
+        width: 250px;
+        border-radius: 4px;
+        border: 1px solid grey;
+
+        outline: none;
+
+        font-family: 'Mulish', sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        color: black;
+
+        &:focus {
+            box-shadow: 0 0 5px grey;
+        }
+    }
+
+    button {
+        border-radius: 4px;
+        border: 1px solid grey;
+
+        font-family: 'Mulish', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:active {
+            background-color: rgb(162, 159, 159);
+            box-shadow: 0 0 10px grey;
+            color: white;
+        }
+    }
+}
+
+.todo_ul {
+    margin-top: 15px;
+    list-style: none;
+    width: 400px;
+    max-height: 480px;
+    padding: 0;
+
+    overflow: auto;
+    overflow-x: hidden;
+
+    @include center_mar();
+
+    font-family: 'Mulish', serif;
+    font-size: 17px;
+    font-weight: 600;
+
+    &::-webkit-scrollbar {
+        height: 10px;
+        width: 3px;
+        background: rgba(0, 0, 0, 0);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #616161;
+        border-radius: 1ex;
+        box-shadow: 0px 0 0 rgba(0, 0, 0, 0);
+    }
+
+    &::-webkit-scrollbar-corner {
+        background: rgba(0, 0, 0, 0);
+    }
+
+    li {
+        display: flex;
+        gap: 10px;
+        border-bottom: 1px solid grey;
+        margin-top: 8px;
+
+        .delete {
+            margin-left: auto;
+            margin-right: 10px;
+            color: red;
+            cursor: pointer;
+
+            font-size: 19px;
+            font-weight: 1000;
+        }
+
+    }
+    .text_done {
+        text-decoration: line-through;
+        text-decoration-thickness: 2px;
+    }
+
+    #checker {
+        cursor: pointer;
+
+    }
+}
+
+.loading_todo {
+    display: flex;
+    justify-content: center;
+}
+
+.error_todo {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    color: rgb(250, 65, 65);
+}

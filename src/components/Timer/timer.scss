@@ -1,0 +1,45 @@
+@import '../mixins_vars.scss';
+
+@keyframes clock-animation {
+    0% {
+      stroke-dashoffset: 90;
+      stroke: blue;
+    }
+    100% {
+      stroke-dashoffset: 471;
+      stroke: red;
+    }
+}
+
+.main_timer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100vw;
+    padding-top: 50px;
+
+    .timer_clock {
+        width: 150px;
+        height: 150px;
+
+        svg {
+            circle {
+                fill: transparent;
+                stroke: blue;
+                stroke-width: 10px;
+                stroke-dasharray: 471;
+                stroke-dashoffset: 27;
+                animation: none;
+                animation-play-state: running;
+                transform: rotate(-90deg);
+                transform-origin: center;
+            }
+
+            text {
+                font-family: "Verdana";
+                font-size: "15";
+            }
+        }
+    }
+}
