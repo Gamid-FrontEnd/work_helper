@@ -80,7 +80,7 @@ const Timer = () => {
             <text x="23" y="80" fill="blue">{hours} : {minutes} : {seconds}</text>
           </g>
         </svg>
-        </div>
+      </div>
 
       <div className='timer_input_all'>
         <div className='timer_input'>

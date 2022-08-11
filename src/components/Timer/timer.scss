@@ -4,12 +4,10 @@
     0% {
       stroke-dashoffset: 90;
       stroke: blue;
-      filter: drop-shadow( 0px 0px 5px rgba(0, 0, 0, .7));
     }
     100% {
       stroke-dashoffset: 471;
       stroke: red;
-      //filter: drop-shadow( 0px 0px 5px rgba(198, 0, 0, 0.7));
     }
 }
 
@@ -29,7 +27,7 @@
             circle {
                 fill: white;
                 stroke: blue;
-                stroke-width: 10px;
+                stroke-width: 7px;
                 stroke-dasharray: 471;
                 stroke-dashoffset: 27;
                 animation: none;
@@ -37,7 +35,7 @@
                 transform: rotate(-90deg);
                 transform-origin: center;
 
-                filter: drop-shadow( 0px 0px 5px rgba(0, 0, 0, .7));
+                filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, .7));
             }
             .circle_svg_back {
                 fill: transparent;
