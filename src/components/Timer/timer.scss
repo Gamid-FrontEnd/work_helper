@@ -4,10 +4,12 @@
     0% {
       stroke-dashoffset: 90;
       stroke: blue;
+      filter: drop-shadow( 0px 0px 5px rgba(0, 0, 0, .7));
     }
     100% {
       stroke-dashoffset: 471;
       stroke: red;
+      //filter: drop-shadow( 0px 0px 5px rgba(198, 0, 0, 0.7));
     }
 }
 
@@ -25,7 +27,7 @@
 
         svg {
             circle {
-                fill: transparent;
+                fill: white;
                 stroke: blue;
                 stroke-width: 10px;
                 stroke-dasharray: 471;
@@ -34,11 +36,19 @@
                 animation-play-state: running;
                 transform: rotate(-90deg);
                 transform-origin: center;
+
+                filter: drop-shadow( 0px 0px 5px rgba(0, 0, 0, .7));
+            }
+            .circle_svg_back {
+                fill: transparent;
+                stroke: rgb(96, 96, 96);
+                stroke-width: 2px;
             }
 
             text {
                 font-family: "Verdana";
-                font-size: "15";
+                font-size: 15;
+                font-weight: 500;
             }
         }
     }
@@ -74,7 +84,16 @@
 
         select {
             outline: none;
-            //padding: 2px 0px 2px 11px;
+            box-shadow: 0 0 5px black;
+
+            option {
+                text-align: center;
+
+                &:checked {
+                    background-color: rgb(145, 187, 255);
+                    font-weight: bold;
+                }
+            }
 
             &::-webkit-scrollbar {
                 width: 5px;
@@ -93,7 +112,7 @@
     .timer_buttons {
         display: flex;
         justify-content: space-between;
-        width: 150px;
+        width: 100px;
 
         button {
             border: $bord;
@@ -103,6 +122,20 @@
             &:hover {
                 background-color: rgb(230, 230, 230);
             }
+
+            &:active {
+                box-shadow: 0 0 5px black;
+                transform: scale(0.96);
+                background-color: #808080;
+                color: white;
+            }
         }
+    }
+
+    .p_timesup {
+        font-family: "Verdana";
+        font-size: 15;
+        color: rgb(251, 66, 66);
+        font-weight: 600;
     }
 }
